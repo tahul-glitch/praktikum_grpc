@@ -18,15 +18,18 @@ type server struct {
 func (s *server) GetUserProfile(ctx context.Context, req *pb.UserRequest) (*pb.UserResponse, error) {
 	log.Printf("Menerima request untuk User ID: %d\n", req.GetUserId())
 	if req.GetUserId() == 1 {
-		return &pb.UserResponse{
-			Name:  "Budi Santoso",
-			Email: "budi@universitas.ac.id",
-		}, nil
-	}
-	return &pb.UserResponse{
-		Name:  "User Tidak Ditemukan",
-		Email: "-",
-	}, nil
+    return &pb.UserResponse{
+        Name:  "Budi Santoso",
+        Email: "budi@universitas.ac.id",
+        Phone: "081234567890",
+    }, nil
+}
+    return &pb.UserResponse{
+        Name:  "User Tidak Ditemukan",
+        Email: "-",
+        Phone: "-",
+}, nil
+
 }
 
 func main() {
